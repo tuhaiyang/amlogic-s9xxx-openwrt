@@ -12,7 +12,7 @@ on:
       source_branch:
         description: "Select the source branch"
         required: false
-        default: "immortalwrt_master"
+        default: "openwrt_main"
         type: choice
         options:
           - openwrt_main
@@ -21,7 +21,7 @@ on:
       openwrt_board:
         description: "Select device board"
         required: false
-        default: "s905d"
+        default: "all"
         type: choice
         options:
           - all
@@ -219,7 +219,7 @@ on:
       kernel_usage:
         description: "Set the tags of the stable kernel."
         required: false
-        default: "flippy"
+        default: "stable"
         type: choice
         options:
           - stable
