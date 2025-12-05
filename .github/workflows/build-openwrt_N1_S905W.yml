@@ -3,7 +3,7 @@
 # Description: Build OpenWrt system image
 #============================================================================================
 
-name: Build OpenWrt system image
+name: Build OpenWrt_s905D_s905W system image
 
 on:
   repository_dispatch:
