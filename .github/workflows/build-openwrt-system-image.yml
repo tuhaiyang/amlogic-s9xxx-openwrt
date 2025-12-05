@@ -3,7 +3,7 @@
 # Description: Build OpenWrt system image
 #============================================================================================
 
-name: Build OpenWrt_s905D_s905W system image
+name: Build OpenWrt system image
 
 on:
   repository_dispatch:
@@ -21,12 +21,13 @@ on:
       openwrt_board:
         description: "Select device board"
         required: false
-        default: "all"
+        default: "s905d_s905w"
         type: choice
         options:
-          - all
+          - all          
           - s905d
-          - s905w
+          - s905d_s905w
+          - s905w          
       openwrt_kernel:
         description: "Select kernel version"
         required: false
@@ -187,6 +188,8 @@ jobs:
           [[ -f "${FEEDS_CONF}" ]] && cp -f ${FEEDS_CONF} openwrt/feeds.conf.default
           chmod +x ${DIY_P1_SH}
           cd openwrt/
+          echo "src-git passwall_packages https://github.com/xiaorouji/openwrt-passwall-packages.git;main" >> "feeds.conf.default"
+          echo "src-git passwall_luci https://github.com/xiaorouji/openwrt-passwall.git;main" >> "feeds.conf.default"
           ${{ github.workspace }}/${DIY_P1_SH}
 
       - name: Update feeds
