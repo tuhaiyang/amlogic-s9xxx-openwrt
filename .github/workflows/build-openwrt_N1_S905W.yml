@@ -80,12 +80,12 @@ on:
       builder_name:
         description: "Set OpenWrt builder signature."
         required: false
-        default: "ophub"
+        default: "tuhaiyang"
         type: choice
         options:
           - ophub
           - angel
-          - yourname
+          - tuhaiyang
 
 env:
   FEEDS_CONF: config/${{ inputs.source_branch }}/feeds.conf.default
